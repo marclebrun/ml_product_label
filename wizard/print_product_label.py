@@ -57,6 +57,14 @@ class PrintProductLabel(models.TransientModel):
         string='Label quantity per product',
         default=1,
     )
+    apply_vat = fields.Boolean(
+        string='Apply VAT',
+        default=True
+    )
+    vat_rate = fields.Float(
+        string='VAT rate (%)',
+        default=21.0
+    )
     humanreadable = fields.Boolean(
         string='Print digital code of barcode',
         default=False,
