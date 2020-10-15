@@ -65,6 +65,10 @@ class PrintProductLabel(models.TransientModel):
         string='VAT rate (%)',
         default=21.0
     )
+    vat_suffix = fields.Char(
+        string='VAT suffix',
+        default='TTC'
+    )
     humanreadable = fields.Boolean(
         string='Print digital code of barcode',
         default=False,
