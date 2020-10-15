@@ -24,6 +24,7 @@ class PrintProductLabelLine(models.TransientModel):
     barcode = fields.Char('Barcode', related='product_id.barcode')
     qty_initial = fields.Integer('Initial Qty', default=1)
     qty = fields.Integer('Label Qty', default=1)
+    printed_price = fields.Float('Printed Price', default=123.45)
 
     @api.multi
     def action_plus_qty(self):

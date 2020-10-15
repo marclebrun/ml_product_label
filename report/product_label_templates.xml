@@ -11,7 +11,10 @@
                     </div>
                     <div style="width: 100%; padding: 0; margin: 0; font-size: 25px; font-weight: bold;">
                         <span t-field="label.product_id.currency_id.symbol"/>
-                        <span t-field="label.product_id.lst_price"/>
+                        <span t-field="label.printed_price"/>
+                        <t t-if="label.wizard_id.apply_vat">
+                            <span t-field="label.wizard_id.vat_suffix" />
+                        </t>
                     </div>
                     <div t-if="label.product_id.default_code" style="width: 100%; padding: 0; margin: 0; font-size: 12px;">
                         <span t-field="label.product_id.default_code"/>

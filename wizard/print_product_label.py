@@ -59,7 +59,7 @@ class PrintProductLabel(models.TransientModel):
     )
     apply_vat = fields.Boolean(
         string='Apply VAT',
-        default=True
+        default=False
     )
     vat_rate = fields.Float(
         string='VAT rate (%)',
@@ -78,6 +78,13 @@ class PrintProductLabel(models.TransientModel):
     def action_print(self):
         """ Print labels """
         self.ensure_one()
+        for label in self.label_ids:
+            if self.apply_vat:
+                printed_price = label.product_id.lst_price * (1 + (self.vat_rate / 100))
+            else:
+                printed_price = label.product_id.lst_price
+            printed_price = round(printed_price, label.product_id.currency_id.decimal_places)
+            label.update({'printed_price': printed_price})
         labels = self.label_ids.filtered(lambda x: x.selected == True and x.qty > 0).mapped('id')
         if not labels:
             raise Warning(_('Nothing to print, set the quantity of labels in the table.'))
