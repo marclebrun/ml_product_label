@@ -41,7 +41,7 @@ In the wizard form:
     You can input the quantity or use **-** / **+** buttons.
 
   * If you need to set a certain quantity for **all** labels, enter the value and click on **Set quantity for all lines**.
-  * After changing the label quantities you can restore the initial values. Click the button **Restore initial quantities** for this.**
+  * After changing the label quantities you can restore the initial values. Click the button **Restore initial quantities** for this.
   * Click on **Print**.
 
 ![Label Print Wizard](static/description/label_print_wizard.png)
